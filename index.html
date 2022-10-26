@@ -8,15 +8,33 @@
 </head> <link rel="stylesheet" href="style.css">
 <body> <center> 
     <div>
-        <h3> <p>മാങ്ങാട്ടിടം പഞ്ചായത്തിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള തൊഴിൽകാർഡ് സംബന്ധിച്ച വിവരങ്ങൾ ലഭ്യമാവാൻ താഴേ കൊടുത്തിട്ടുള്ള <b>JobCard</b> എന്ന ബട്ടണിൽ ക്ലിക്ക് ചെയ്യുക . ശേഷം വാർഡ് നമ്പർ നൽകുക. പിന്നീട് തൊഴിൽകാർഡ്  നമ്പർ നൽകുക . തൊഴിൽകാർഡ് നമ്പറിന്റെ കൂടെ വാർഡ് നമ്പർ നൽകേണ്ടതില്ല (ഉദാഹരണത്തിന് 17/143 എന്ന തൊഴിൽകാർഡ് വിവരങ്ങൾ ലഭ്യമാവാൻ വാർഡ് നമ്പർ 17 ഉം തൊഴിൽകാർഡ് നമ്പർ 143 ഉം നൽകിയാൽ മതി )</p>
+        <h3> <p>മാങ്ങാട്ടിടം പഞ്ചായത്തിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള തൊഴിൽകാർഡ് സംബന്ധിച്ച വിവരങ്ങൾ </p>
         
         </h3>
     </div>
+</center>
+<center>
+    <form>
+        <label>
+            വാർഡ് നമ്പർ
+        </label>
+        <br>
+        <input type="number" id="ward">
+        <br>
+
+        <label>
+            തൊഴിൽകാർഡ് നമ്പർ
+        </label>
+        <br>
+        <input type="number" id="jobcard">
+    </form>
     
 </center>
+   
+
     
     <br>
-    <center><button onclick="jobCard()" >JobCard</button></center> 
+    <center><button onclick="jobCard()" >Submit</button></center> 
     <script src="jobcard.js"></script>
 </body>
 </html>
