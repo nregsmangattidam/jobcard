@@ -2,7 +2,7 @@ b{
     color: crimson;
 }
 button{
-    background-color: #4CAF50; /* Green */
+    background-color: #eb61e4; /* Green */
     border: none;
     color: white;
     padding: 15px 32px;
@@ -16,4 +16,12 @@ button{
   
   body{
     background-color: lemonchiffon;
+  }
+  input[type=number] {
+    border: 2px solid rgb(84, 219, 30);
+    border-radius: 4px;
+  }
+  h3{
+    text-shadow: 2px;
+    color: rgb(219, 74, 30);
   }
