@@ -4,42 +4,53 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ </title>
-</head> <link rel="stylesheet" href="style.css">
-<body> <center> 
-    <div>
-        <h3> <p>മാങ്ങാട്ടിടം പഞ്ചായത്തിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള തൊഴിൽകാർഡ് സംബന്ധിച്ച വിവരങ്ങൾ </p>
-        
-        </h3>
+    <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        .footer {
+            background-color: #f8f9fa;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="text-center mt-5">
+            <h3>മാങ്ങാട്ടിടം പഞ്ചായത്തിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള തൊഴിൽകാർഡ് സംബന്ധിച്ച വിവരങ്ങൾ</h3>
+        </div>
+
+        <div class="row justify-content-center mt-5">
+            <div class="col-lg-4">
+                <form onsubmit="return jobCard()" class="text-center">
+                    <div class="form-group">
+                        <label for="ward">വാർഡ് നമ്പർ</label>
+                        <input type="number" id="ward" class="form-control" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
+                        <input type="number" id="jobcard" class="form-control" required>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Submit</button>
+                </form>
+            </div>
+        </div>
     </div>
-</center>
-<center>
-    <form onsubmit="return jobCard()">
-        <label>
-            വാർഡ് നമ്പർ
-        </label>
-        <br>
-        <br>
-        <input type="number" id="ward" required>
-        <br>
-        <br>
 
-        <label>
-            തൊഴിൽകാർഡ് നമ്പർ
-        </label>
-        <br>
-        <br>
-        <input type="number" id="jobcard" required>
-       
-    </form>
-    <br>
-    
-</center>
-   
+    <footer class="footer">
+        <div class="container">
+            <span>&copy; <span id="currentYear"></span> vishnunarikodan</span>
+        </div>
+    </footer>
 
-    
-    <br>
-    <center><button onclick="jobCard()" >Submit</button></center> 
     <script src="jobcard.js"></script>
+    <script>
+        const currentYear = new Date().getFullYear();
+        document.getElementById('currentYear').textContent = currentYear;
+    </script>
 </body>
 </html>
