@@ -8,17 +8,40 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #f8f9fa;
+            background-color: #de95f5;
         }
 
-        .footer {
-            background-color: #f8f9fa;
+        .title-card {
+            background-color: #007bff;
+            color: #fff;
+            border-radius: 10px;
             padding: 20px;
+            margin-bottom: 20px;
             text-align: center;
-            position: fixed;
-            left: 0;
-            bottom: 0;
+            border-radius: 30%;
+        }
+
+        .title-card h3 {
+            margin: 0;
+            text-align: left; /* Adjust title text alignment */
+        }
+
+        .navbar-brand {
+            display: flex;
+            justify-content: center;
             width: 100%;
+        }
+
+        .card {
+            border: 1px solid #e94545;
+            border-radius: 50px;
+            padding: 20px;
+            background-color: #e29b9b;
+            text-align: center; /* Center align all card text */
+        }
+
+        .card label {
+            font-weight: bold;
         }
 
         .form-group input[type="number"] {
@@ -27,44 +50,67 @@
         }
 
         .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
+            background-color: #0ad486;
+            border-color: #f04ee2;
+            border-radius: 10%;
         }
 
         .btn-primary:hover {
-            background-color: #0069d9;
-            border-color: #0062cc;
+            background-color: #218838;
+            border-color: #1e7e34;
+        }
+
+        .footer {
+            background-color: #f5aad3;
+            padding: 20px;
+            text-align: center;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+        }
+
+        .footer span {
+            color: #fff;
         }
     </style>
 </head>
 <body>
     <div class="container">
-        <div class="text-center mt-5">
-            <h3>മാങ്ങാട്ടിടം പഞ്ചായത്തിൽ രജിസ്റ്റർ ചെയ്തിട്ടുള്ള തൊഴിൽകാർഡ് സംബന്ധിച്ച വിവരങ്ങൾ</h3>
+        <div class="card title-card mt-5">
+            <nav class="navbar navbar-expand-lg navbar-light bg-success">
+                <a class="navbar-brand text-white d-flex justify-content-center" href="#">തൊഴിൽകാർഡ് വിവരങ്ങൾ</a>
+            </nav>
         </div>
 
         <div class="row justify-content-center mt-5">
             <div class="col-lg-4">
-                <form onsubmit="return jobCard()" class="text-center">
-                    <div class="form-group">
-                        <label for="ward">വാർഡ് നമ്പർ</label>
-                        <input type="number" id="ward" class="form-control" required>
+                <div class="card">
+                    <div class="card-body">
+                        <form onsubmit="return jobCard()">
+                            <div class="card bg-light p-3">
+                                <div class="form-group">
+                                    <label for="ward">വാർഡ് നമ്പർ</label>
+                                    <input type="number" id="ward" class="form-control" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
+                                    <input type="number" id="jobcard" class="form-control" required>
+                                </div>
+                            </div>
+                            <button class="btn btn-primary btn-block">Submit</button>
+                        </form>
                     </div>
-                    <div class="form-group">
-                        <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
-                        <input type="number" id="jobcard" class="form-control" required>
-                    </div>
-                    <button class="btn btn-primary btn-block">Submit</button>
-                </form>
+                </div>
+            </div>
+        </div>
+
+        <div class="card footer mt-5">
+            <div class="card-body text-center">
+                <span>&copy; <span id="currentYear"></span> Vishnu Narikodan</span>
             </div>
         </div>
     </div>
-
-    <footer class="footer">
-        <div class="container">
-            <span>&copy; <span id="currentYear"></span> Vishnu Narikodan</span>
-        </div>
-    </footer>
 
     <script>
         function jobCard() {
