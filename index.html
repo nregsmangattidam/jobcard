@@ -7,6 +7,10 @@
     <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
         .footer {
             background-color: #f8f9fa;
             padding: 20px;
@@ -15,6 +19,21 @@
             left: 0;
             bottom: 0;
             width: 100%;
+        }
+
+        .form-group input[type="number"] {
+            border-radius: 20px;
+            padding: 12px 20px;
+        }
+
+        .btn-primary {
+            background-color: #007bff;
+            border-color: #007bff;
+        }
+
+        .btn-primary:hover {
+            background-color: #0069d9;
+            border-color: #0062cc;
         }
     </style>
 </head>
@@ -35,7 +54,7 @@
                         <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
                         <input type="number" id="jobcard" class="form-control" required>
                     </div>
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button onclick="jobCard()" type="submit" class="btn btn-primary btn-block">Submit</button>
                 </form>
             </div>
         </div>
@@ -43,7 +62,7 @@
 
     <footer class="footer">
         <div class="container">
-            <span>&copy; <span id="currentYear"></span> vishnunarikodan</span>
+            <span>&copy; <span id="currentYear"></span> Vishnu Narikodan</span>
         </div>
     </footer>
 
