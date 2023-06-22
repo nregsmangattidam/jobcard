@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -23,7 +24,7 @@
 
         .title-card h3 {
             margin: 0;
-            text-align: left; /* Adjust title text alignment */
+            text-align: left;
         }
 
         .navbar-brand {
@@ -37,7 +38,7 @@
             border-radius: 50px;
             padding: 20px;
             background-color: #e29b9b;
-            text-align: center; /* Center align all card text */
+            text-align: center;
         }
 
         .card label {
@@ -60,6 +61,14 @@
             border-color: #1e7e34;
         }
 
+        .spinner {
+            display: none;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
         .footer {
             background-color: #f5aad3;
             padding: 20px;
@@ -75,6 +84,7 @@
         }
     </style>
 </head>
+
 <body>
     <div class="container">
         <div class="card title-card mt-5">
@@ -87,7 +97,7 @@
             <div class="col-lg-4">
                 <div class="card">
                     <div class="card-body">
-                        <form onsubmit="return jobCard()">
+                        <form onsubmit="return jobCard(event)">
                             <div class="card bg-light p-3">
                                 <div class="form-group">
                                     <label for="ward">വാർഡ് നമ്പർ</label>
@@ -98,7 +108,11 @@
                                     <input type="number" id="jobcard" class="form-control" required>
                                 </div>
                             </div>
-                            <button class="btn btn-primary btn-block">Submit</button>
+                            <button class="btn btn-primary btn-block" type="submit">
+                                <span class="text">Submit</span>
+                                <span class="spinner-border spinner-border-sm ml-2 spinner" role="status"
+                                    aria-hidden="true"></span>
+                            </button>
                         </form>
                     </div>
                 </div>
@@ -113,14 +127,24 @@
     </div>
 
     <script>
-        function jobCard() {
+        function jobCard(event) {
+            event.preventDefault(); // Prevent form submission
+
+            let submitButton = event.target.querySelector("button[type='submit']");
+            let spinner = event.target.querySelector(".spinner");
+
             let n = document.getElementById("ward").value;
             let m = document.getElementById("jobcard").value;
-            if (n < 10) {
-                window.location.href  = "https://mnregaweb2.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-00"+n+"%2f"+m+"&state_name=&district_name=&block_name=&panchayat_name=&village_code=1602006004017+++++&fin_year=&panchayat_code=1602006004&Digest=DXLDauVcnWvIAT6moKBidg";
+
+            submitButton.disabled = true;
+            spinner.style.display = "inline-block";
+
+            if (n<10) {
+                window.location.href  = "https://nregastrep.nic.in/Netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-00"+n+"%2f"+m+"&state_name=&district_name=&block_name=&panchayat_name=&village_code=1602006004017+++++&fin_year=&panchayat_code=1602006004&Digest=DXLDauVcnWvIAT6moKBidg";
             } else {
-                window.location.href  = "https://mnregaweb2.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-0"+n+"%2f"+m+"&state_name=&district_name=&block_name=&panchayat_name=&village_code=1602006004017+++++&fin_year=&panchayat_code=1602006004&Digest=DXLDauVcnWvIAT6moKBidg";  
+                window.location.href  = "https://nregastrep.nic.in/Netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-0"+n+"%2f"+m+"&state_name=&district_name=&block_name=&panchayat_name=&village_code=1602006004017+++++&fin_year=&panchayat_code=1602006004&Digest=DXLDauVcnWvIAT6moKBidg";  
             }
+
             return false; // Prevent form submission
         }
 
@@ -128,4 +152,5 @@
         document.getElementById('currentYear').textContent = currentYear;
     </script>
 </body>
+
 </html>
