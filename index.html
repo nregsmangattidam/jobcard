@@ -9,57 +9,59 @@
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
     <style>
         body {
-            background-color: #de95f5;
-            padding-bottom: 80px; /* Adjusted to accommodate footer */
+            background-color: #f8f9fa;
+            font-family: 'Arial', sans-serif;
+            margin: 0;
+            padding: 0;
+        }
+
+        .navbar {
+            background-color: #007bff;
+        }
+
+        .navbar-brand {
+            color: #fff;
+            font-weight: bold;
+        }
+
+        .card {
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            margin-bottom: 20px;
         }
 
         .title-card {
-            background-color: #007bff;
+            background-color: #6c757d;
             color: #fff;
+            padding: 15px;
             border-radius: 10px;
-            padding: 20px;
-            margin-bottom: 20px;
             text-align: center;
-            border-radius: 30%;
         }
 
         .title-card h3 {
             margin: 0;
-            text-align: left;
         }
 
-        .navbar-brand {
-            display: flex;
-            justify-content: center;
-            width: 100%;
-        }
-
-        .card {
-            border: 1px solid #e94545;
-            border-radius: 50px;
-            padding: 20px;
-            background-color: #e29b9b;
-            text-align: center;
-        }
-
-        .card label {
+        .form-group label {
             font-weight: bold;
         }
 
-        .form-group input[type="number"] {
-            border-radius: 20px;
-            padding: 12px 20px;
+        .form-control {
+            border-radius: 5px;
+            padding: 10px;
         }
 
         .btn-primary {
-            background-color: #0ad486;
-            border-color: #f04ee2;
-            border-radius: 10%;
+            background-color: #007bff;
+            border-color: #007bff;
+            border-radius: 5px;
+            padding: 10px 20px;
+            font-weight: bold;
         }
 
         .btn-primary:hover {
-            background-color: #218838;
-            border-color: #1e7e34;
+            background-color: #0056b3;
+            border-color: #0056b3;
         }
 
         .loading-bar-container {
@@ -68,6 +70,7 @@
             width: 100%;
             height: 5px;
             background-color: #ddd;
+            margin-top: 10px;
         }
 
         .loading-bar {
@@ -91,77 +94,56 @@
         }
 
         .footer {
-            background-color: #f5aad3;
+            background-color: #343a40;
+            color: #fff;
             padding: 20px;
             text-align: center;
             position: fixed;
             left: 0;
             bottom: 0;
             width: 100%;
-            z-index: 999; /* Added z-index to keep the footer on top */
-        }
-
-        .footer span {
-            color: #fff;
-        }
-
-        #externalPage {
-            margin-top: 20px;
-            border: 1px solid #ddd;
-            padding: 10px;
-            background-color: #fff;
-            margin-bottom: 100px; /* Added margin-bottom to make space for the footer */
         }
     </style>
 </head>
 
 <body>
-    <div class="container">
-        <div>
-            <nav class="navbar navbar-expand-lg navbar-light bg-secondary">
-                <a class="navbar-brand text-white d-flex justify-content-center" href="https://nregsmangattidam.github.io/nmmsview/">NMMS ഹാജർ നില </a>
-            </nav>
-        </div>
-        <div class="card title-card mt-5">
-            <nav class="navbar navbar-expand-lg navbar-light bg-success">
-                <a class="navbar-brand text-white d-flex justify-content-center" href="#">തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</a>
-            </nav>
+    <nav class="navbar navbar-expand-lg navbar-light">
+        <a class="navbar-brand" href="https://nregsmangattidam.github.io/nmmsview/">NMMS ഹാജർ നില</a>
+    </nav>
+
+    <div class="container mt-5">
+        <div class="card title-card">
+            <h3>തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</h3>
         </div>
 
         <div class="row justify-content-center mt-5">
             <div class="col-lg-4">
-                <div class="card">
-                    <div class="card-body">
-                        <form onsubmit="return jobCard(event)">
-                            <div class="card bg-light p-3">
-                                <div class="form-group">
-                                    <label for="ward">വാർഡ് നമ്പർ</label>
-                                    <input type="number" id="ward" class="form-control" required>
-                                </div>
-                                <div class="form-group">
-                                    <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
-                                    <input type="number" id="jobcard" class="form-control" required>
-                                </div>
+                <div class="card p-4">
+                    <form onsubmit="return jobCard(event)">
+                        <div class="form-group">
+                            <label for="ward">വാർഡ് നമ്പർ</label>
+                            <input type="number" id="ward" class="form-control" required>
+                        </div>
+                        <div class="form-group">
+                            <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
+                            <input type="number" id="jobcard" class="form-control" required>
+                        </div>
+                        <button class="btn btn-primary btn-block" type="submit" id="submitBtn">
+                            Submit
+                            <div class="loading-bar-container">
+                                <div class="loading-bar"></div>
                             </div>
-                            <button class="btn btn-primary btn-block" type="submit" id="submitBtn">
-                                <span class="text">Submit</span>
-                                <div class="loading-bar-container">
-                                    <div class="loading-bar"></div>
-                                </div>
-                            </button>
-                        </form>
-                    </div>
+                        </button>
+                    </form>
                 </div>
             </div>
         </div>
 
         <div id="externalPage" class="mt-5"></div>
+    </div>
 
-        <div class="card footer mt-5">
-            <div class="card-body text-center">
-                <span>&copy; <span id="currentYear"></span> Vishnu Narikodan</span>
-            </div>
-        </div>
+    <div class="footer">
+        &copy; <span id="currentYear"></span> Vishnu Narikodan
     </div>
 
     <script>
