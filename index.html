@@ -98,10 +98,24 @@
             color: #fff;
             padding: 20px;
             text-align: center;
-            position: fixed;
-            left: 0;
-            bottom: 0;
             width: 100%;
+            position: absolute;
+            bottom: 0;
+        }
+
+        @media (max-width: 576px) {
+            .card {
+                margin: 10px;
+            }
+
+            .title-card {
+                padding: 10px;
+            }
+
+            .form-group label,
+            .btn-primary {
+                font-size: 14px;
+            }
         }
     </style>
 </head>
@@ -117,7 +131,7 @@
         </div>
 
         <div class="row justify-content-center mt-5">
-            <div class="col-lg-4">
+            <div class="col-lg-4 col-md-6 col-sm-8 col-10">
                 <div class="card p-4">
                     <form onsubmit="return jobCard(event)">
                         <div class="form-group">
@@ -165,7 +179,9 @@
             let url = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
             setTimeout(() => {
-                window.location.href = url;
+                document.getElementById("externalPage").innerHTML = `<iframe src="${url}" style="width: 100%; height: 100vh; border: none;"></iframe>`;
+                submitButton.style.display = "block"; // Show the submit button
+                loadingBarContainer.style.display = "none"; // Hide the loading bar
             }, 2000); // Simulate loading time for 2 seconds
 
             return false; // Prevent form submission
