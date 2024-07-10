@@ -156,10 +156,13 @@
             let wardValue = document.getElementById("ward").value;
             let jobcardValue = document.getElementById("jobcard").value;
 
+            // Pad the ward number to always be three digits
+            wardValue = wardValue.padStart(3, '0');
+
             submitButton.style.display = "none"; // Hide the submit button
             loadingBarContainer.style.display = "block"; // Show the loading bar
 
-            let url = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-0${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
+            let url = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
             setTimeout(() => {
                 window.location.href = url;
