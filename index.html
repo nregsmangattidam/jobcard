@@ -120,11 +120,6 @@
                 font-size: 14px;
             }
         }
-
-        /* Hidden iframe */
-        #hiddenIframe {
-            display: none;
-        }
     </style>
 </head>
 
@@ -168,11 +163,8 @@
         &copy; <span id="currentYear"></span> Vishnu Narikodan
     </div>
 
-    <!-- Hidden iframe -->
-    <iframe id="hiddenIframe" src=""></iframe>
-
     <script>
-        function jobCard(event) {
+        async function jobCard(event) {
             event.preventDefault(); // Prevent form submission
 
             let submitButton = document.getElementById("submitBtn");
@@ -190,28 +182,22 @@
             let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
             let dynamicUrl = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
-            // Set the src of the hidden iframe to the static URL
-            let iframe = document.getElementById("hiddenIframe");
-            iframe.src = staticUrl;
+            try {
+                // Make a request to the static URL
+                await fetch(staticUrl, { credentials: 'include' });
 
-            // Store the dynamic URL to open it later
-            iframe.dataset.dynamicUrl = dynamicUrl;
-
-            return false; // Prevent form submission
-        }
-
-        function openDynamicUrl() {
-            let iframe = document.getElementById("hiddenIframe");
-            let dynamicUrl = iframe.dataset.dynamicUrl;
-
-            if (dynamicUrl) {
-                // Open the dynamic URL in the current tab
+                // Redirect to the dynamic URL
                 window.location.href = dynamicUrl;
+            } catch (error) {
+                console.error('Error loading static URL:', error);
+                alert('Failed to load the required page. Please try again.');
+            } finally {
+                // Restore the submit button and hide the loading bar
+                submitButton.style.display = "block";
+                loadingBarContainer.style.display = "none";
             }
 
-            // Restore the submit button and hide the loading bar
-            document.getElementById("submitBtn").style.display = "block";
-            document.querySelector(".loading-bar-container").style.display = "none";
+            return false; // Prevent form submission
         }
 
         const currentYear = new Date().getFullYear();
