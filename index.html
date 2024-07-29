@@ -169,7 +169,7 @@
     </div>
 
     <!-- Hidden iframe -->
-    <iframe id="hiddenIframe" src="" onload="openDynamicUrl()"></iframe>
+    <iframe id="hiddenIframe" src=""></iframe>
 
     <script>
         function jobCard(event) {
@@ -205,8 +205,8 @@
             let dynamicUrl = iframe.dataset.dynamicUrl;
 
             if (dynamicUrl) {
-                // Open the dynamic URL in a new tab
-                window.open(dynamicUrl, '_blank');
+                // Open the dynamic URL in the current tab
+                window.location.href = dynamicUrl;
             }
 
             // Restore the submit button and hide the loading bar
