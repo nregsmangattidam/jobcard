@@ -15,51 +15,89 @@
             padding: 0;
             position: relative;
             min-height: 100vh;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
         }
 
         .navbar {
             background-color: #007bff;
+            width: 100%;
+            text-align: center;
+            padding: 15px;
         }
 
         .navbar-brand {
             color: #fff;
             font-weight: bold;
+            font-size: 1.5rem;
         }
 
-        .card {
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            margin-bottom: 20px;
-            background-color: #ffffff;
+        .container {
+            max-width: 500px;
+            width: 100%;
+            padding: 20px;
+            margin: 20px 0;
+            background-color: #fff;
+            border-radius: 15px;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+            animation: fadeIn 1s ease-in-out;
         }
 
         .title-card {
-            background-color: #6c757d;
+            background-color: #007bff;
             color: #fff;
             padding: 15px;
-            border-radius: 10px;
+            border-radius: 15px;
             text-align: center;
+            margin-bottom: 20px;
+            font-size: 1.25rem;
         }
 
-        .title-card h3 {
-            margin: 0;
+        .info-message {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            color: #343a40;
+            text-align: center;
+            animation: slideIn 1s ease-in-out;
+        }
+
+        .info-message a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .info-message a:hover {
+            color: #0056b3;
+        }
+
+        .card {
+            padding: 20px;
+            border-radius: 15px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            background-color: #f8f9fa;
         }
 
         .form-group label {
             font-weight: bold;
+            color: #343a40;
         }
 
         .form-control {
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 10px;
         }
 
         .btn-primary {
             background-color: #007bff;
             border-color: #007bff;
-            border-radius: 5px;
+            border-radius: 10px;
             padding: 10px 20px;
             font-weight: bold;
+            width: 100%;
+            transition: background-color 0.3s ease-in-out;
         }
 
         .btn-primary:hover {
@@ -99,91 +137,95 @@
         .footer {
             background-color: #343a40;
             color: #fff;
-            padding: 20px;
+            padding: 10px;
             text-align: center;
             width: 100%;
-            position: absolute;
+            position: fixed;
             bottom: 0;
+            font-size: 0.9rem;
         }
 
         @media (max-width: 576px) {
-            .card {
+            .container {
                 margin: 10px;
+                padding: 15px;
             }
 
             .title-card {
                 padding: 10px;
+                font-size: 1rem;
+            }
+
+            .info-message {
+                font-size: 0.9rem;
             }
 
             .form-group label,
             .btn-primary {
-                font-size: 14px;
+                font-size: 0.9rem;
             }
         }
 
-        .info-message {
-            margin-bottom: 20px;
-            font-size: 16px;
-            color: #343a40;
-            text-align: center;
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+            }
+
+            to {
+                opacity: 1;
+            }
         }
 
-        .info-message a {
-            color: #007bff;
-            font-weight: bold;
-            text-decoration: underline;
-        }
+        @keyframes slideIn {
+            from {
+                transform: translateY(20px);
+                opacity: 0;
+            }
 
-        .info-message a:hover {
-            color: #0056b3;
+            to {
+                transform: translateY(0);
+                opacity: 1;
+            }
         }
     </style>
 </head>
 
 <body>
-    <nav class="navbar navbar-expand-lg navbar-light">
+    <nav class="navbar">
         <a class="navbar-brand" href="https://nregsmangattidam.github.io/nmmsview/">NMMS ഹാജർ നില</a>
     </nav>
 
-    <div class="container mt-5">
-        <div class="card title-card">
+    <div class="container">
+        <div class="title-card">
             <h3>തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</h3>
         </div>
 
-        <div class="row justify-content-center mt-5">
-            <div class="col-lg-8 col-md-10 col-sm-12">
-                <div class="info-message">
-                    പ്രിയ തൊഴിലാളികൾക്ക് ഉണ്ടായ ബുദ്ധിമുട്ട് ശ്രദ്ധയിൽപ്പെട്ടിരിക്കുന്നു ആയതിനാൽ തൊഴിൽ കാർഡ് 
-                    വിവരങ്ങൾ കൃത്യമായി ലഭ്യമാകുവാൻ താഴെ കൊടുത്തിരിക്കുന്ന ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുക, ശേഷം വീണ്ടും 
-                    ഈ ആപ്ലിക്കേഷൻ തുറന്ന് തൊഴിൽ കാർഡ് വിവരങ്ങൾ നൽകി വിവരങ്ങൾ കാണാവുന്നതാണ്. എല്ലാദിവസവും 
-                    ഒരു തവണയെങ്കിലും താഴെക്കൊടുത്തിരിക്കുന്ന ലിങ്ക് ഓപ്പൺ ചെയ്ത ശേഷം മാത്രം ഈ ആപ്ലിക്കേഷൻ 
-                    ഉപയോഗിച്ചാൽ ഈ പ്രശ്നം ഒഴിവാക്കാവുന്നതാണ്.
-                </div>
-                <div class="text-center mb-3">
-                    <a href="#" onclick="openStaticUrl()">ഈ ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുക</a>
-                </div>
-                <div class="card p-4">
-                    <form onsubmit="return jobCard(event)">
-                        <div class="form-group">
-                            <label for="ward">വാർഡ് നമ്പർ</label>
-                            <input type="number" id="ward" class="form-control" required>
-                        </div>
-                        <div class="form-group">
-                            <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
-                            <input type="number" id="jobcard" class="form-control" required>
-                        </div>
-                        <button class="btn btn-primary btn-block" type="submit" id="submitBtn">
-                            Submit
-                        </button>
-                        <div class="loading-bar-container">
-                            <div class="loading-bar"></div>
-                        </div>
-                    </form>
-                </div>
-            </div>
+        <div class="info-message">
+            പ്രിയ തൊഴിലാളികൾക്ക് ഉണ്ടായ ബുദ്ധിമുട്ട് ശ്രദ്ധയിൽപ്പെട്ടിരിക്കുന്നു ആയതിനാൽ തൊഴിൽ കാർഡ് 
+            വിവരങ്ങൾ കൃത്യമായി ലഭ്യമാകുവാൻ താഴെ കൊടുത്തിരിക്കുന്ന <a href="#" onclick="openStaticUrl()">ഈ ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുക</a>, 
+            ശേഷം വീണ്ടും ഈ ആപ്ലിക്കേഷൻ തുറന്ന് തൊഴിൽ കാർഡ് വിവരങ്ങൾ നൽകി വിവരങ്ങൾ കാണാവുന്നതാണ്. 
+            എല്ലാദിവസവും ഒരു തവണയെങ്കിലും താഴെക്കൊടുത്തിരിക്കുന്ന ലിങ്ക് ഓപ്പൺ ചെയ്ത ശേഷം മാത്രം ഈ ആപ്ലിക്കേഷൻ 
+            ഉപയോഗിച്ചാൽ ഈ പ്രശ്നം ഒഴിവാക്കാവുന്നതാണ്.
         </div>
 
-        <div id="externalPage" class="mt-5"></div>
+        <div class="card">
+            <form onsubmit="return jobCard(event)">
+                <div class="form-group">
+                    <label for="ward">വാർഡ് നമ്പർ</label>
+                    <input type="number" id="ward" class="form-control" required>
+                </div>
+                <div class="form-group">
+                    <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
+                    <input type="number" id="jobcard" class="form-control" required>
+                </div>
+                <button class="btn btn-primary" type="submit" id="submitBtn">
+                    Submit
+                </button>
+                <div class="loading-bar-container">
+                    <div class="loading-bar"></div>
+                </div>
+            </form>
+        </div>
     </div>
 
     <div class="footer">
