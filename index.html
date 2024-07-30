@@ -73,6 +73,23 @@
             color: #1abc9c;
         }
 
+        .whatsapp-link {
+            text-align: center;
+            margin-top: 10px;
+            color: #34495e;
+            font-size: 1rem;
+        }
+
+        .whatsapp-link a {
+            color: #25d366;
+            font-size: 2rem;
+            text-decoration: none;
+        }
+
+        .whatsapp-link a:hover {
+            color: #128c7e;
+        }
+
         .card {
             background-color: #f5f5f5;
             padding: 20px;
@@ -209,18 +226,25 @@
             ഉപയോഗിച്ചാൽ ഈ പ്രശ്നം ഒഴിവാക്കാവുന്നതാണ്.
         </div>
 
+        <div class="whatsapp-link">
+            <p>സംശയങ്ങൾക്ക് വാട്സ്ആപ്പിൽ മെസ്സേജ് അയക്കാവുന്നതാണ് (ദയവായി കോൾ  ചെയ്യാതിരിക്കുക)</p>
+            <a href="https://wa.me/919995564371" target="_blank">
+                <i class="fab fa-whatsapp"></i>
+            </a>
+        </div>
+
         <div class="card">
             <form onsubmit="return jobCard(event)">
                 <div class="form-group">
-                    <label for="ward"><i class="fas fa-map-marker-alt"></i> വാർഡ് നമ്പർ</label>
+                    <label for="ward">വാർഡ് നമ്പർ</label>
                     <input type="number" id="ward" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="jobcard"><i class="fas fa-id-card"></i> തൊഴിലകാർഡ് നമ്പർ</label>
+                    <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
                     <input type="number" id="jobcard" class="form-control" required>
                 </div>
                 <button class="btn btn-primary" type="submit" id="submitBtn">
-                    Submit <i class="fas fa-paper-plane"></i>
+                    Submit
                 </button>
                 <div class="loading-bar-container">
                     <div class="loading-bar"></div>
@@ -237,7 +261,7 @@
         function openStaticUrl() {
             let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
             window.open(staticUrl, '_blank');
-            document.getElementById("infoMessage").style.display = "none"; // Hide the info message
+            document.getElementById('infoMessage').style.display = 'none';
         }
 
         function jobCard(event) {
@@ -258,7 +282,7 @@
             let dynamicUrl = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
             // Open the dynamic URL in a new tab
-            setTimeout(function () {
+            setTimeout(function() {
                 window.open(dynamicUrl, '_blank');
             }, 1000); // Adjust the delay as needed
 
