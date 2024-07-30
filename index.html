@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -120,6 +120,23 @@
                 font-size: 14px;
             }
         }
+
+        .info-message {
+            margin-bottom: 20px;
+            font-size: 16px;
+            color: #343a40;
+            text-align: center;
+        }
+
+        .info-message a {
+            color: #007bff;
+            font-weight: bold;
+            text-decoration: underline;
+        }
+
+        .info-message a:hover {
+            color: #0056b3;
+        }
     </style>
 </head>
 
@@ -134,7 +151,14 @@
         </div>
 
         <div class="row justify-content-center mt-5">
-            <div class="col-lg-4 col-md-6 col-sm-8 col-10">
+            <div class="col-lg-8 col-md-10 col-sm-12">
+                <div class="info-message">
+                    പ്രിയ തൊഴിലാളികൾക്ക് ഉണ്ടായ ബുദ്ധിമുട്ട് ശ്രദ്ധയിൽപ്പെട്ടിരിക്കുന്നു ആയതിനാൽ തൊഴിൽ കാർഡ് വിവരങ്ങൾ കൃത്യമായി ലഭ്യമാകുവാൻ 
+                    താഴെ കൊടുത്തിരിക്കുന്ന ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുക 
+                    (<a href="#" onclick="openStaticUrl()">click here</a>), ശേഷം വീണ്ടും ഈ ആപ്ലിക്കേഷൻ തുറന്ന് തൊഴിൽ കാർഡ് വിവരങ്ങൾ 
+                    നൽകി വിവരങ്ങൾ കാണാവുന്നതാണ്. എല്ലാദിവസവും ഒരു തവണയെങ്കിലും താഴെക്കൊടുത്തിരിക്കുന്ന ലിങ്ക് ഓപ്പൺ 
+                    ചെയ്ത ശേഷം മാത്രം ഈ ആപ്ലിക്കേഷൻ ഉപയോഗിച്ചാൽ ഈ പ്രശ്നം ഒഴിവാക്കാവുന്നതാണ്.
+                </div>
                 <div class="card p-4">
                     <form onsubmit="return jobCard(event)">
                         <div class="form-group">
@@ -164,6 +188,11 @@
     </div>
 
     <script>
+        function openStaticUrl() {
+            let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
+            window.open(staticUrl, '_blank');
+        }
+
         function jobCard(event) {
             event.preventDefault(); // Prevent form submission
 
@@ -179,17 +208,16 @@
             submitButton.style.display = "none"; // Hide the submit button
             loadingBarContainer.style.display = "block"; // Show the loading bar
 
-            let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
             let dynamicUrl = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
-            // Open static URL in a new tab
-            let staticWindow = window.open(staticUrl, '_blank');
-
-            // Wait for a short period before redirecting to the dynamic URL
+            // Open the dynamic URL in a new tab
             setTimeout(function() {
-                staticWindow.close(); // Close the static URL tab
-                window.location.href = dynamicUrl; // Redirect to the dynamic URL
-            }, 3000); // Adjust the delay as needed
+                window.open(dynamicUrl, '_blank');
+            }, 1000); // Adjust the delay as needed
+
+            // Restore the submit button and hide the loading bar
+            document.getElementById("submitBtn").style.display = "block";
+            document.querySelector(".loading-bar-container").style.display = "none";
 
             return false; // Prevent form submission
         }
