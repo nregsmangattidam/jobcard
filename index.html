@@ -3,7 +3,7 @@
 
 <head>
     <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta http-equiv="X-UA-Compatible"="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
@@ -201,7 +201,7 @@
             <h3><i class="fas fa-id-card"></i> തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</h3>
         </div>
 
-        <div class="info-message">
+        <div class="info-message" id="infoMessage">
             പ്രിയ തൊഴിലാളികൾക്ക് ഉണ്ടായ ബുദ്ധിമുട്ട് ശ്രദ്ധയിൽപ്പെട്ടിരിക്കുന്നു ആയതിനാൽ തൊഴിൽ കാർഡ് 
             വിവരങ്ങൾ കൃത്യമായി ലഭ്യമാകുവാൻ താഴെ കൊടുത്തിരിക്കുന്ന <a href="#" onclick="openStaticUrl()">ഈ ലിങ്കിൽ ക്ലിക്ക് ചെയ്യുക</a>, 
             ശേഷം വീണ്ടും ഈ ആപ്ലിക്കേഷൻ തുറന്ന് തൊഴിൽ കാർഡ് വിവരങ്ങൾ നൽകി വിവരങ്ങൾ കാണാവുന്നതാണ്. 
@@ -237,6 +237,7 @@
         function openStaticUrl() {
             let staticUrl = "https://nregastrep.nic.in/netnrega/Homedist.aspx?flag_debited=&is_statefund=&lflag=eng&district_code=1602&district_name=KANNUR&state_name=KERALA&state_Code=16";
             window.open(staticUrl, '_blank');
+            document.getElementById("infoMessage").style.display = "none"; // Hide the info message
         }
 
         function jobCard(event) {
@@ -257,7 +258,7 @@
             let dynamicUrl = `https://nregastrep.nic.in/netnrega/state_html/jcr.aspx?reg_no=KL-02-006-004-${wardValue}/${jobcardValue}&village_code=1602006004019&fin_year=2024-2025&Digest=vishnu`;
 
             // Open the dynamic URL in a new tab
-            setTimeout(function() {
+            setTimeout(function () {
                 window.open(dynamicUrl, '_blank');
             }, 1000); // Adjust the delay as needed
 
