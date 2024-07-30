@@ -7,49 +7,49 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>തൊഴിൽകാർഡ് വിവരങ്ങൾ</title>
     <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <style>
         body {
-            background-color: #f0f2f5;
-            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #71b7e6, #9b59b6);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
             margin: 0;
             padding: 0;
-            position: relative;
-            min-height: 100vh;
             display: flex;
             flex-direction: column;
             align-items: center;
             justify-content: center;
+            min-height: 100vh;
         }
 
         .navbar {
-            background-color: #007bff;
+            background-color: #2c3e50;
             width: 100%;
+            padding: 10px 0;
             text-align: center;
-            padding: 15px;
         }
 
         .navbar-brand {
-            color: #fff;
-            font-weight: bold;
+            color: #ecf0f1;
             font-size: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 2px;
         }
 
         .container {
             max-width: 500px;
             width: 100%;
+            background: #ecf0f1;
             padding: 20px;
-            margin: 20px 0;
-            background-color: #fff;
-            border-radius: 15px;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
-            animation: fadeIn 1s ease-in-out;
+            border-radius: 20px;
+            box-shadow: 0 15px 25px rgba(0, 0, 0, 0.3);
+            animation: zoomIn 0.5s ease-in-out;
         }
 
         .title-card {
-            background-color: #007bff;
-            color: #fff;
+            background-color: #34495e;
+            color: #ecf0f1;
             padding: 15px;
-            border-radius: 15px;
+            border-radius: 10px;
             text-align: center;
             margin-bottom: 20px;
             font-size: 1.25rem;
@@ -58,42 +58,42 @@
         .info-message {
             margin-bottom: 20px;
             font-size: 1rem;
-            color: #343a40;
+            color: #34495e;
             text-align: center;
-            animation: slideIn 1s ease-in-out;
+            animation: fadeInLeft 1s ease-in-out;
         }
 
         .info-message a {
-            color: #007bff;
+            color: #2980b9;
             font-weight: bold;
             text-decoration: underline;
         }
 
         .info-message a:hover {
-            color: #0056b3;
+            color: #1abc9c;
         }
 
         .card {
+            background-color: #f5f5f5;
             padding: 20px;
-            border-radius: 15px;
+            border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            background-color: #f8f9fa;
         }
 
         .form-group label {
             font-weight: bold;
-            color: #343a40;
+            color: #2c3e50;
         }
 
         .form-control {
-            border-radius: 10px;
+            border-radius: 5px;
             padding: 10px;
         }
 
         .btn-primary {
-            background-color: #007bff;
-            border-color: #007bff;
-            border-radius: 10px;
+            background-color: #3498db;
+            border: none;
+            border-radius: 5px;
             padding: 10px 20px;
             font-weight: bold;
             width: 100%;
@@ -101,8 +101,7 @@
         }
 
         .btn-primary:hover {
-            background-color: #0056b3;
-            border-color: #0056b3;
+            background-color: #2980b9;
         }
 
         .loading-bar-container {
@@ -120,23 +119,13 @@
             left: 0;
             width: 0;
             height: 100%;
-            background-color: #007bff;
+            background-color: #3498db;
             animation: loading-progress 2s linear infinite;
         }
 
-        @keyframes loading-progress {
-            0% {
-                width: 0;
-            }
-
-            100% {
-                width: 100%;
-            }
-        }
-
         .footer {
-            background-color: #343a40;
-            color: #fff;
+            background-color: #2c3e50;
+            color: #ecf0f1;
             padding: 10px;
             text-align: center;
             width: 100%;
@@ -166,25 +155,37 @@
             }
         }
 
-        @keyframes fadeIn {
+        @keyframes zoomIn {
             from {
+                transform: scale(0.5);
                 opacity: 0;
             }
 
             to {
+                transform: scale(1);
                 opacity: 1;
             }
         }
 
-        @keyframes slideIn {
+        @keyframes fadeInLeft {
             from {
-                transform: translateY(20px);
+                transform: translateX(-30px);
                 opacity: 0;
             }
 
             to {
-                transform: translateY(0);
+                transform: translateX(0);
                 opacity: 1;
+            }
+        }
+
+        @keyframes loading-progress {
+            0% {
+                width: 0;
+            }
+
+            100% {
+                width: 100%;
             }
         }
     </style>
@@ -192,12 +193,12 @@
 
 <body>
     <nav class="navbar">
-        <a class="navbar-brand" href="https://nregsmangattidam.github.io/nmmsview/">NMMS ഹാജർ നില</a>
+        <a class="navbar-brand" href="https://nregsmangattidam.github.io/nmmsview/"><i class="fas fa-home"></i> NMMS ഹാജർ നില</a>
     </nav>
 
     <div class="container">
         <div class="title-card">
-            <h3>തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</h3>
+            <h3><i class="fas fa-id-card"></i> തൊഴിൽകാർഡ് - മാങ്ങാട്ടിടം</h3>
         </div>
 
         <div class="info-message">
@@ -211,15 +212,15 @@
         <div class="card">
             <form onsubmit="return jobCard(event)">
                 <div class="form-group">
-                    <label for="ward">വാർഡ് നമ്പർ</label>
+                    <label for="ward"><i class="fas fa-map-marker-alt"></i> വാർഡ് നമ്പർ</label>
                     <input type="number" id="ward" class="form-control" required>
                 </div>
                 <div class="form-group">
-                    <label for="jobcard">തൊഴിൽകാർഡ് നമ്പർ</label>
+                    <label for="jobcard"><i class="fas fa-id-card"></i> തൊഴിലകാർഡ് നമ്പർ</label>
                     <input type="number" id="jobcard" class="form-control" required>
                 </div>
                 <button class="btn btn-primary" type="submit" id="submitBtn">
-                    Submit
+                    Submit <i class="fas fa-paper-plane"></i>
                 </button>
                 <div class="loading-bar-container">
                     <div class="loading-bar"></div>
